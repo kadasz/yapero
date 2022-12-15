@@ -19,8 +19,8 @@ async def enc(node: str):
 def main():
     parser = argparse.ArgumentParser(description='YAPERO')
     parser.add_argument('--node',
-                        dest='node'
-                        help='Type node name like hostname')
+                        dest='node',
+                        help='Type node name like hostname', required=True)
     args=parser.parse_args()
     nodename= ''.join(args.node.split('.')[0::-1]) if '.' in args.node else args.node
     asyncio.run(enc(nodename))
